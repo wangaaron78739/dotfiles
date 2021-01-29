@@ -1,10 +1,16 @@
 let g:coc_global_extensions = [
 	\ 'coc-pairs',
-	\ 'coc-tsserver',
-	\ 'coc-eslint',
 	\ 'coc-prettier',
 	\ 'coc-json',
 	\ ]
+
+"let g:coc_global_extensions = [
+"	\ 'coc-pairs',
+"	\ 'coc-tsserver',
+"	\ 'coc-eslint',
+"	\ 'coc-prettier',
+"	\ 'coc-json',
+"	\ ]
 
 let g:polyglot_disabled = ['latex']
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

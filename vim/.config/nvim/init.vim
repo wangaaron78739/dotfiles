@@ -64,16 +64,16 @@ call plug#begin('~/.vim/plugged')
 	" Multiple Plug commands can be written in a single line using
 
 	"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-	Plug 'scrooloose/nerdtree'
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'christoomey/vim-tmux-navigator'
-	so ~/.vim/plug-config/nerdtree.vim
+	" Plug 'scrooloose/nerdtree'
+	" Plug 'Xuyuanp/nerdtree-git-plugin'
+	" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	" Plug 'ryanoasis/vim-devicons'
+	" Plug 'christoomey/vim-tmux-navigator'
+	" so ~/.vim/plug-config/nerdtree.vim
 
 	" Plugin outside ~/.vim/plugged with post-update hook
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
+	" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	" Plug 'junegunn/fzf.vim'
     "let $FZF_DEFAULT_COMMAND = 'rg --files'
 
 	Plug 'lervag/vimtex'

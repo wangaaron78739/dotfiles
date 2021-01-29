@@ -110,6 +110,13 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias dev="cd ~/Documents/Github"
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+
+
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 eval "$(zoxide init zsh)"
 export NVM_DIR="$HOME/.nvm"
