@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: partiald
+# key: part
+# uuid: partiald
+# --
+\frac{\partial ${1:V}}{\partial ${2:x}} $0

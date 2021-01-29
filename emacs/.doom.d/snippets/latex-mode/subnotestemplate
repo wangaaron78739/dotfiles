@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: subnotestemplate
+# key: subnotestemplate
+# --
+\documentclass[../main/main.tex]{subfiles}
+
+
+\begin{document}
+
+\section{`(format-time-string "%B %d, %Y")`}
+\subsection{${1:Topic}}
+$0
+\end{document}

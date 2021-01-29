@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: description
+# key: desc
+# uuid: description
+# --
+\begin{description}
+	\item[$1] $0
+\end{description}

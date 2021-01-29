@@ -1,0 +1,111 @@
+# -*- mode: snippet -*-
+# name: homeworktemplate
+# uuid: hwtemplate
+# key: hwtemplate
+# condition: t
+# --
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage[hyphens,spaces,obeyspaces]{url}
+\usepackage{listings}
+\lstset{language=C++,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{green}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#}
+}
+
+\usepackage{bm}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{mathtools}
+
+\usepackage{cancel}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+% \usepackage[noend]{algpseudocode}
+\graphicspath{ {./images/} }
+\usepackage[super]{nth}
+\usepackage{hyperref}
+\usepackage[numbered,framed]{matlab-prettifier}
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+
+\usepackage[T1]{fontenc}
+
+\definecolor{camouflagegreen}{rgb}{0.47, 0.53, 0.42}
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \small\mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+\newcommand{\x}{\bm{x}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+\algdef{SE}[SUBALG]{Indent}{EndIndent}{}{\algorithmicend\ }%
+\algtext*{Indent}
+\algtext*{EndIndent}
+
+
+\pagestyle{fancy}
+% \fancyhf{}
+\rhead{SID: 20477053}
+\chead{Name: Aaron Si-yuan Wang}
+\lhead{${1:CourseCode} - ${3:ShortTitle}}
+\cfoot{\thepage}
+\title{
+{\LARGE $1 - ${2:CourseName}} \\\\
+\textbf{\LARGE ${4:LongTitle}} \\\\
+% \textbf{}
+}
+\author{
+\begin{tabular}{R{0.3\textwidth}L{0.4\textwidth}}
+\normalsize\textbf{Name:} & \normalsize WANG, Aaron Si-yuan \\\\
+\normalsize\textbf{Student ID:} & \normalsize20477053 \\\\
+\end{tabular}
+}
+
+\date{}
+
+\begin{document}
+\maketitle\thispagestyle{fancy}
+$0
+\end{document}

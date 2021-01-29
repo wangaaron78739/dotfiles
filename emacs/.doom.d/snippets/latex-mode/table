@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: table
+# key: table
+# uuid: table
+# --
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{${5:c}}
+	$0
+	\end{tabular}
+\end{table}
