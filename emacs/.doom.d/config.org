@@ -153,11 +153,6 @@
 #+end_src
 ** Org
 ** Misc
-*** Spotify
-#+begin_src emacs-lisp
-(setq counsel-spotify-client-id "173fd845f6e140ccb5f79030f56d6980"
-      counsel-spotify-client-secret "1160efb61b26475fb2163e46f2a67c40")
-#+end_src
 * Reference
 #+begin_src emacs-lisp
 ;; Here are some additional functions/macros that could help you configure Doom:

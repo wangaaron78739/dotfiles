@@ -58,8 +58,6 @@
 
 ;; (package! auto-dictionary)
 
-(package! counsel-spotify)
-
 (package! parrot)
 (package! cmake-ide)
 (package! exec-path-from-shell)
