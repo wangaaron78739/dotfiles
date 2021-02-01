@@ -1,16 +1,15 @@
-;; -*- lexical-binding: t; -*-
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
 (setq user-full-name "Aaron Wang"
       user-mail-address "wangaaron78739@gmail.com"
       org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
-;; (when (memq window-system '(mac ns x))
-;;   (exec-path-from-shell-initialize))
-(exec-path-from-shell-initialize)
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 (setq parrot-num-rotations nil)
 
 ;; (setq-default indent-tabs-mode nil)
 ;; (setq-default tab-width 2)
 ;; (setq indent-line-function 'insert-tab)
-;; (global-subword-mode 1)
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -27,7 +26,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-vibrant)
+;; (setq doom-theme 'doom-vibrant)
+(setq doom-theme 'doom-monokai-pro)
+
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 (setq doom-variable-pitch-font (font-spec :family "monospace" :size 13))
 (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
@@ -44,6 +45,12 @@
   '(aw-leading-char-face
     :foreground "white" :background "red"
     :weight bold :height 2.5 :box (:line-width 10 :color "red")))
+
+(defun really-kill-emacs ()
+  "Like `kill-emacs', but ignores `kill-emacs-hook'."
+  (interactive)
+  (let (kill-emacs-hook)
+    (kill-emacs)))
 (setq +latex-viewers '(pdf-tools))
 (use-package! latex-auto-activating-snippets
   :after latex
@@ -94,14 +101,26 @@
   (kbd "l") 'dired-find-file)
 (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+(setq projectile-switch-project-action 'projectile-dired)
+;; (defun my/counsel-projectile-switch-project-action-dired (project)
+;;   "Open ‘dired’ at the root of the project."
+;;   (let ((projectile-switch-project-action
+;; 	 (lambda ()
+;; 	   (projectile-dired))))
+;;     (counsel-projectile-switch-project-by-name project)))
+
+;; (counsel-projectile-modify-action
+;;  'counsel-projectile-switch-project-action
+;;  '(add ("." my/counsel-projectile-switch-project-action-dired
+;;         "open ‘dired’ at the root of the project")
+;;        ))
 (quickrun-add-command "c++/c1z"
   '((:command . "g++")
     (:exec    . ("%c -std=c++1z %o -o %e %s"
 		 "%e %a"))
     (:remove  . ("%e")))
   :default "c++")
-(setq counsel-spotify-client-id "173fd845f6e140ccb5f79030f56d6980"
-      counsel-spotify-client-secret "1160efb61b26475fb2163e46f2a67c40")
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

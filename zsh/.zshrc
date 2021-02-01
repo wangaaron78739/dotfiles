@@ -129,7 +129,7 @@ mkcdir()
 
 # Emacs
 start_emacs() {
-  emacsclient -c -a ""
+  emacsclient -c -a "" &
 }
 kill_emacs() {
   emacsclient -e "(kill-emacs)"
