@@ -41,6 +41,8 @@
   (centaur-tabs-group-by-projectile-project))
 (setq centaur-tabs-height 18)
 
+(setq which-key-idle-delay 0.1)
+
 (custom-set-faces!
   '(aw-leading-char-face
     :foreground "white" :background "red"
@@ -68,6 +70,9 @@
                     "..." "\\ldots"
                     "tt" "\\text{"
                     "set" "\\{"
+                    "lll" "\\ell"
+                    "tran" "^{T}"
+                    "invs" "^{-1}"
                     "case" (lambda () (interactive)
                              (yas-expand-snippet "\\begin{cases}\n $1\n \\end{cases}"))
                     )
@@ -77,6 +82,14 @@
                             (yas-expand-snippet " \$$1$0"))
                     " dm" (lambda () (interactive)
                             (yas-expand-snippet " \\\[$1$0"))))
+
+(add-hook 'latex-mode-hook
+          (lambda ()
+            (add-hook! 'after-save-hook 'TeX-command-run-all nil 'make-it-local)))
+(defun +myfunc ()
+  (setq parrot-num-rotations 2)
+  )
+(add-hook 'latex-mode-hook #'+myfunc)
 (use-package! parrot
   :config
   (parrot-mode)

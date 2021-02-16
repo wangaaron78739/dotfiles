@@ -53,6 +53,8 @@
   (centaur-tabs-group-by-projectile-project))
 (setq centaur-tabs-height 18)
 
+(setq which-key-idle-delay 0.1)
+
 (custom-set-faces!
   '(aw-leading-char-face
     :foreground "white" :background "red"
@@ -86,6 +88,9 @@
                     "..." "\\ldots"
                     "tt" "\\text{"
                     "set" "\\{"
+                    "lll" "\\ell"
+                    "tran" "^{T}"
+                    "invs" "^{-1}"
                     "case" (lambda () (interactive)
                              (yas-expand-snippet "\\begin{cases}\n $1\n \\end{cases}"))
                     )
@@ -95,6 +100,14 @@
                             (yas-expand-snippet " \$$1$0"))
                     " dm" (lambda () (interactive)
                             (yas-expand-snippet " \\\[$1$0"))))
+
+(add-hook 'latex-mode-hook
+          (lambda ()
+            (add-hook! 'after-save-hook 'TeX-command-run-all nil 'make-it-local)))
+(defun +myfunc ()
+  (setq parrot-num-rotations 2)
+  )
+(add-hook 'latex-mode-hook #'+myfunc)
 #+end_src
 *** Parrot
 #+begin_src emacs-lisp
@@ -105,16 +118,16 @@
   (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point))
 #+end_src
 *** Dired
-| COMMAND                                   | DESCRIPTION                                     | KEYBINDING |
-|-------------------------------------------+-------------------------------------------------+------------|
-| dired                                     | Open dired file manager                         | SPC d d    |
-| dired-jump                                | Jump to current directory in dired              | SPC d j    |
-| (in dired) peep-dired                     | Toggle image previews within dired              | SPC d p    |
-| (in dired) dired-view-file                | View file in dired                              | SPC d v    |
-| (in dired) dired-up-directory             | Go up in the directory tree                     | h          |
-| (in dired) dired-find-file                | Go down in the directory tree (or open if file) | l          |
-| (in peep-dired-mode) peep-dired-next-file | Move to next file in peep-dired-mode            | j          |
-| (in peep-dired-mode) peep-dired-prev-file | Move to previous file in peep-dired-mode        | k          |
+| COMMAND                                   | DESCRIPTION                                     | KEYBINDING                 |
+|-------------------------------------------+-------------------------------------------------+----------------------------|
+| dired                                     | Open dired file manager                         | SPC d d                    |
+| dired-jump                                | Jump to current directory in dired              | SPC d j                    |
+| (in dired) peep-dired                     | Toggle image previews within dired              | SPC d p                    |
+| (in dired) dired-view-file                | View file in dired                              | SPC d v                    |
+| (in dired) dired-up-directory             | Go up in the directory tree                     | h                          |
+| (in dired) dired-find-file                | Go down in the directory tree (or open if file) | l                          |
+| (in peep-dired-mode) peep-dired-next-file | Move to next file in peep-dired-mode            | j                          |
+| (in peep-dired-mode) peep-dired-prev-file | Move to previous file in peep-dired-mode        | k                          |
 #+begin_src emacs-lisp
 (map! :leader
       :desc "Dired"

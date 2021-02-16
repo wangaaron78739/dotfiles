@@ -76,9 +76,6 @@
 \newcommand{\mat}[1]{\mathbf{#1}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
-\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
-\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
-\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 
 \algdef{SE}[SUBALG]{Indent}{EndIndent}{}{\algorithmicend\ }%
 \algtext*{Indent}
@@ -97,7 +94,7 @@
 % \textbf{}
 }
 \author{
-\begin{tabular}{R{0.3\textwidth}L{0.4\textwidth}}
+\begin{tabular}{rl}
 \normalsize\textbf{Name:} & \normalsize WANG, Aaron Si-yuan \\\\
 \normalsize\textbf{Student ID:} & \normalsize20477053 \\\\
 \end{tabular}
