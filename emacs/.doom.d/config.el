@@ -170,7 +170,4 @@
                                 "--completion-style=detailed"
                                 "--header-insertion=never"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
-(global-set-key (kbd "M-/") 'evilnc-comment-or-uncomment-lines)
-(global-set-key (kbd "s-v") 'clipboard-yank)
-(global-set-key (kbd "s-x") 'clipboard-kill-region)
-(global-set-key (kbd "s-c") 'clipboard-kill-ring-save)
+(load! "+bindings")
