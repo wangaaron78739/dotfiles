@@ -1,11 +1,12 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (setq user-full-name "Aaron Wang"
-      user-mail-address "wangaaron78739@gmail.com"
-      org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
+      user-mail-address "wangaaron78739@gmail.com")
 (when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  (setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org"))
 (setq parrot-num-rotations nil)
+(setq projectile-project-search-path '("~/Documents/GitHub/"))
 
 ;; (setq-default indent-tabs-mode nil)
 ;; (setq-default tab-width 2)
@@ -54,8 +55,9 @@
   (let (kill-emacs-hook)
     (kill-emacs)))
 (setq +latex-viewers '(pdf-tools))
-(use-package! latex-auto-activating-snippets
+(use-package! laas
   :after latex
+  :hook (LaTeX-mode . laas-mode)
   :config
   (aas-set-snippets 'latex-mode
                     :cond #'texmathp ; expand only while in math
@@ -168,3 +170,7 @@
                                 "--completion-style=detailed"
                                 "--header-insertion=never"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+(global-set-key (kbd "M-/") 'evilnc-comment-or-uncomment-lines)
+(global-set-key (kbd "s-v") 'clipboard-yank)
+(global-set-key (kbd "s-x") 'clipboard-kill-region)
+(global-set-key (kbd "s-c") 'clipboard-kill-ring-save)

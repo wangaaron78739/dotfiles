@@ -49,12 +49,13 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! auto-activating-snippets
-  :recipe (:host github :repo "ymarco/auto-activating-snippets"
-           :files ("auto-activating-snippets.el")))
-(package! latex-auto-activating-snippets
+;; (package! auto-activating-snippet
+;;   :recipe (:host github :repo "ymarco/auto-activating-snippets"
+;;            :files ("aas.el")))
+(package! aas)
+(package! laas
   :recipe (:host github :repo "tecosaur/LaTeX-auto-activating-snippets"
-           :files ("latex-auto-activating-snippets.el")))
+           :files ("laas.el")))
 
 ;; (package! auto-dictionary)
 
