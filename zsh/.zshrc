@@ -150,16 +150,30 @@ kill_emacs() {
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/Aaron/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/aaron/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/Aaron/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/Aaron/opt/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/aaron/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/aaron/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/Aaron/opt/anaconda3/bin:$PATH"
+        export PATH="/home/aaron/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+  ;;
+  Linux)
+    # commands for Linux go here
+    PATH="$HOME/.local/bin:$PATH"
+    export PATH="/usr/lib/cuda-11.1/bin:$PATH"
+    alias open="xdg-open"
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac

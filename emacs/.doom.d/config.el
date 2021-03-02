@@ -6,7 +6,7 @@
   (exec-path-from-shell-initialize)
   (setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org"))
 (setq parrot-num-rotations nil)
-(setq projectile-project-search-path '("~/Documents/GitHub/"))
+(setq projectile-project-search-path '("~/Documents/Github/"))
 
 ;; (setq-default indent-tabs-mode nil)
 ;; (setq-default tab-width 2)
@@ -55,35 +55,66 @@
   (let (kill-emacs-hook)
     (kill-emacs)))
 (setq +latex-viewers '(pdf-tools))
-(use-package! laas
-  :after latex
-  :hook (LaTeX-mode . laas-mode)
-  :config
-  (aas-set-snippets 'latex-mode
-                    :cond #'texmathp ; expand only while in math
-                    "./" (lambda () (interactive)
-                           (yas-expand-snippet "\\frac{${1:`(or % \"numerator\")`}}{${2:denominator}}$0 "))
-                    "case" (lambda () (interactive)
-                             (yas-expand-snippet "\\begin{${1:`(or % \"numerator\")`}}{${2:denominator}}$0 "))
-                    "norm" (lambda () (interactive)
-                             (yas-expand-snippet "\\|$1\\|$0"))
-                    "td" "^{"
-                    "qq" "\\quad"
-                    "..." "\\ldots"
-                    "tt" "\\text{"
-                    "set" "\\{"
-                    "lll" "\\ell"
-                    "tran" "^{T}"
-                    "invs" "^{-1}"
-                    "case" (lambda () (interactive)
-                             (yas-expand-snippet "\\begin{cases}\n $1\n \\end{cases}"))
-                    )
-  (aas-set-snippets 'latex-mode
-                    :cond (not #'texmathp)
-                    " mk" (lambda () (interactive)
-                            (yas-expand-snippet " \$$1$0"))
-                    " dm" (lambda () (interactive)
-                            (yas-expand-snippet " \\\[$1$0"))))
+(when (eq system-type 'gnu/linux)
+  (use-package! laas
+    :after latex
+    :hook (LaTeX-mode . laas-mode)
+    :config
+    (aas-set-snippets 'laas-mode
+                      :cond #'texmathp ; expand only while in math
+                      "./" (lambda () (interactive)
+                             (yas-expand-snippet "\\frac{${1:`(or % \"numerator\")`}}{${2:denominator}}$0 "))
+                      "norm" (lambda () (interactive)
+                               (yas-expand-snippet "\\|$1\\|$0"))
+                      "td" (lambda () (interactive)
+                             (yas-expand-snippet "^{$1"))
+                      "qq" "\\quad"
+                      "..." "\\ldots"
+                      "tt" (lambda () (interactive)
+                             (yas-expand-snippet "\\text{$1"))
+                      "set" (lambda () (interactive)
+                              (yas-expand-snippet "\\\\{$1"))
+                      ".(" (lambda () (interactive)
+                             (yas-expand-snippet "\\left($1\\right)"))
+                      "lll" "\\ell"
+                      "tran" "^{T}"
+                      "invs" "^{-1}"
+                      "case" (lambda () (interactive)
+                               (yas-expand-snippet "\\begin{cases}\n $1\n \\end{cases}"))
+                      :cond (not #'texmathp)
+                      " mk" (lambda () (interactive)
+                              (yas-expand-snippet " \$$1$0"))
+                      " dm" (lambda () (interactive)
+                              (yas-expand-snippet " \\\[$1$0")))
+    ))
+
+(when (eq system-type 'darwin)
+  (use-package! laas
+    :after latex
+    :hook (LaTeX-mode . laas-mode)
+    :config
+    (aas-set-snippets 'laas-mode
+                      :cond #'texmathp ; expand only while in math
+                      "./" (lambda () (interactive)
+                             (yas-expand-snippet "\\frac{${1:`(or % \"numerator\")`}}{${2:denominator}}$0 "))
+                      "norm" (lambda () (interactive)
+                               (yas-expand-snippet "\\|$1\\|$0"))
+                      "td" "^{"
+                      "qq" "\\quad"
+                      "..." "\\ldots"
+                      "tt" "\\text{"
+                      "set" "\\{"
+                      "lll" "\\ell"
+                      "tran" "^{T}"
+                      "invs" "^{-1}"
+                      "case" (lambda () (interactive)
+                               (yas-expand-snippet "\\begin{cases}\n $1\n \\end{cases}"))
+                      :cond (not #'texmathp)
+                      " mk" (lambda () (interactive)
+                              (yas-expand-snippet " \$$1$0"))
+                      " dm" (lambda () (interactive)
+                              (yas-expand-snippet " \\\[$1$0")))
+    ))
 
 (add-hook 'latex-mode-hook
           (lambda ()
