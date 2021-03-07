@@ -171,6 +171,7 @@ case `uname` in
     # commands for Linux go here
     PATH="$HOME/.local/bin:$PATH"
     export PATH="/usr/lib/cuda-11.1/bin:$PATH"
+    export PATH="/spotifyd/target/release:$PATH"
     alias open="xdg-open"
   ;;
   FreeBSD)

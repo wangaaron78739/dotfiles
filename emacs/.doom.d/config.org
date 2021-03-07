@@ -17,6 +17,9 @@
 (setq parrot-num-rotations nil)
 (setq projectile-project-search-path '("~/Documents/Github/"))
 
+(setq indent-line-function 'insert-tab)
+;; (setq ispell-dictionary "es_US")
+
 ;; (setq-default indent-tabs-mode nil)
 ;; (setq-default tab-width 2)
 ;; (setq indent-line-function 'insert-tab)

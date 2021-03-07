@@ -75,8 +75,11 @@
 \newcommand{\y}{\bm{y}}
 \newcommand{\mat}[1]{\mathbf{#1}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcommand{\sspan}{\operatorname{span}}
+\newcommand{\argmin}{\operatorname{argmin}}
+\newcommand{\iprod}[2]{\left\langle{#1},{#2}\right\rangle }
 
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \algdef{SE}[SUBALG]{Indent}{EndIndent}{}{\algorithmicend\ }%
 \algtext*{Indent}
 \algtext*{EndIndent}
