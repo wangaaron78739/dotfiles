@@ -76,7 +76,9 @@
 \newcommand{\mat}[1]{\mathbf{#1}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\sspan}{\operatorname{span}}
-\newcommand{\argmin}{\operatorname{argmin}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\arccosh}{arccosh}
 \newcommand{\iprod}[2]{\left\langle{#1},{#2}\right\rangle }
 
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}

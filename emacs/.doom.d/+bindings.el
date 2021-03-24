@@ -18,7 +18,7 @@
   (setq mac-command-modifier 'super))
 
 (map!
- :gnvime "M-/"   #'evilnc-comment-or-uncomment-lines
+ :gnvime "s-/"   #'evilnc-comment-or-uncomment-lines
  :gnvime "M-y"   #'counsel-yank-pop
  :gnvime "s-v"   #'clipboard-yank
  :gnvime "s-V"   #'counsel-yank-pop

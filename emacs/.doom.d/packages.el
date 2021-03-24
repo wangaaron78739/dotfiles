@@ -62,3 +62,5 @@
 (package! parrot)
 (package! cmake-ide)
 (package! exec-path-from-shell)
+(package! evil-quickscope)
+(package! company-tabnine)

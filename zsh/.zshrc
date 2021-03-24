@@ -172,7 +172,10 @@ case `uname` in
     PATH="$HOME/.local/bin:$PATH"
     export PATH="/usr/lib/cuda-11.1/bin:$PATH"
     export PATH="/spotifyd/target/release:$PATH"
+    #adding cuda to LD path
+    export LD_LIBRARY_PATH="/usr/lib-11.1/cuda/lib64:$LD_LIBRARY_PATH"
     alias open="xdg-open"
+    export MAKEFLAGS="-j16"
   ;;
   FreeBSD)
     # commands for FreeBSD go here

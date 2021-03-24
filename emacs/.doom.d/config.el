@@ -2,11 +2,23 @@
 
 (setq user-full-name "Aaron Wang"
       user-mail-address "wangaaron78739@gmail.com")
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize)
   (setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org"))
+
 (setq parrot-num-rotations nil)
 (setq projectile-project-search-path '("~/Documents/Github/"))
+
+
+(when (eq system-type 'gnu/linux)
+  (setq company-idle-delay 0.1)
+  ;; (setq company-show-numbers t)
+  )
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (make-local-variable 'company-idle-delay)
+            (setq company-idle-delay 0.5)))
 
 (setq indent-line-function 'insert-tab)
 ;; (setq ispell-dictionary "es_US")
@@ -170,6 +182,32 @@
 		 "%e %a"))
     (:remove  . ("%e")))
   :default "c++")
+(setq aya-trim-one-line 't)
+(defvar company-mode/enable-yas t
+  "Enable yasnippet for all backends.")
+
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+(setq evil-snipe-scope 'visible)
+(global-evil-quickscope-mode 1)
+;; (use-package! company-tabnine
+;;   :after company
+;;   :config
+;;   (add-to-list 'company-backends #'company-tabnine))
+;; ;; (use-package! company-tabnine
+;; ;;   :after company
+;; ;;   :config
+;; ;;   (cl-pushnew 'company-tabnine (default-value 'company-backends)))
+(use-package! company-tabnine
+  :after company
+  :when (featurep! :completion company)
+  :config
+  (cl-pushnew 'company-tabnine (default-value 'company-backends))
+  )
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -204,4 +242,6 @@
                                 "--completion-style=detailed"
                                 "--header-insertion=never"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+;; (setq lsp-pyright-use-library-code-for-types 'nil)
+(setq lsp-pyright-use-library-code-for-types t)
 (load! "+bindings")
