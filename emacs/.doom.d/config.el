@@ -13,6 +13,7 @@
 
 (when (eq system-type 'gnu/linux)
   (setq company-idle-delay 0.1)
+  (setq company-box-doc-delay 0.1)
   ;; (setq company-show-numbers t)
   )
 (add-hook 'LaTeX-mode-hook
