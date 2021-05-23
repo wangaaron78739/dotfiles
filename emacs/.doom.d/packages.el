@@ -64,3 +64,4 @@
 (package! exec-path-from-shell)
 (package! evil-quickscope)
 (package! company-tabnine)
+(package! ox-gfm)

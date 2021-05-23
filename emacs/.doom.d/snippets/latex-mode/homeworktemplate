@@ -64,6 +64,7 @@
 \newtheorem{lemma}{Lemma}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\newtheorem*{question}{Question}
 
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}

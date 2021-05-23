@@ -10,6 +10,7 @@
 (setq parrot-num-rotations nil)
 (setq projectile-project-search-path '("~/Documents/Github/"))
 
+(setq vterm-shell "/usr/bin/fish")
 
 (when (eq system-type 'gnu/linux)
   (setq company-idle-delay 0.1)
@@ -19,7 +20,9 @@
 (add-hook 'LaTeX-mode-hook
           (lambda ()
             (make-local-variable 'company-idle-delay)
-            (setq company-idle-delay 0.5)))
+            (setq company-idle-delay 0.5)
+            (setq TeX-command-extra-options "-shell-escape")
+            ))
 
 (setq indent-line-function 'insert-tab)
 ;; (setq ispell-dictionary "es_US")
@@ -27,6 +30,7 @@
 ;; (setq-default indent-tabs-mode nil)
 ;; (setq-default tab-width 2)
 ;; (setq indent-line-function 'insert-tab)
+(setq ivy-use-selectable-prompt t)
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -183,6 +187,21 @@
 		 "%e %a"))
     (:remove  . ("%e")))
   :default "c++")
+(use-package! ox-gfm
+  :after org)
+;; (after! org (setq org-html-head-include-scripts t
+;;                   org-export-with-toc t
+;;                   org-export-with-author t
+;;                   org-export-headline-levels 4
+;;                   org-export-with-drawers nil
+;;                   org-export-with-email t
+;;                   org-export-with-footnotes t
+;;                   org-export-with-sub-superscripts nil
+;;                   org-export-with-latex t
+;;                   org-export-with-section-numbers nil
+;;                   org-export-with-properties nil
+;;                   org-export-with-smart-quotes t
+;;                   org-export-backends '(pdf ascii html latex odt md pandoc)))
 (setq aya-trim-one-line 't)
 (defvar company-mode/enable-yas t
   "Enable yasnippet for all backends.")
