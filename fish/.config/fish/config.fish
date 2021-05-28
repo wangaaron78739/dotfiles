@@ -87,9 +87,10 @@ abbr pu pueue
 abbr pusts pueue status
 
 # repeat the previous command, the problem is you cant do this twice
-abbr k ' eval $history[1]'
-abbr kk ' eval $history[2]'
-abbr sudo!! ' eval sudo $history[1]'
+abbr k ' run_previous_command'
+abbr kk ' run_prev2_command'
+abbr K ' run_history_command' 
+abbr sukk ' sudo run_prev2_command'
 
 # cat(bat) or ls(lsd) all-in-one
 function v
@@ -320,3 +321,28 @@ function watch-script
 end
 
 direnv hook fish | source
+
+# function __reg_on_dir_change
+# end
+# function __on_dir_change --on-variable PWD
+# 	# TODO: dont onefetch if we are navigating around inside the repo
+# 	set _root (git rev-parse --show-toplevel 2> /dev/null)
+# 	if test -n "$_root"
+# 		if test -z "$CURR_GIT_ROOT"
+# 			onefetch --no-color-palette 2> /dev/null
+# 		else 
+# 			if test "$CURR_GIT_ROOT" != "$_root"
+# 				onefetch --no-color-palette 2> /dev/null
+# 			end
+# 		end
+# 	end
+# 	set -gx CURR_GIT_ROOT "$_root"
+# 	# if test -d .git
+# 	# 	onefetch --no-color-palette 2> /dev/null
+# 	# end
+# 	lsd -A
+# end
+
+function gvm
+  bass source ~/.gvm/scripts/gvm ';' gvm $argv
+end

@@ -264,4 +264,6 @@
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 ;; (setq lsp-pyright-use-library-code-for-types 'nil)
 (setq lsp-pyright-use-library-code-for-types t)
+(setq lsp-pyright-multi-root 'nil)
+(advice-add 'lsp :before (lambda (&rest _args) (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
 (load! "+bindings")

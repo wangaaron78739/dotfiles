@@ -6,3 +6,7 @@
 	path = emacs/.emacs.d
 	url = https://github.com/hlissner/doom-emacs
 	shallow = true
+[submodule "lunarvim/.config/nvim"]
+	path = lunarvim/.config/nvim
+	url = https://github.com/wangaaron78739/LunarVim.git
+	shallow = true
